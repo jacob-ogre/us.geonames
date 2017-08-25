@@ -1,0 +1,18 @@
+Package: us.geonames
+Type: Package
+Title: US geographic placenames data, searches, and mapping
+Version: 0.1.0
+Authors@R: person("Jacob", "Malcom", email = "jmalcom@defenders.org", role = c("aut", "cre"))
+Description: US geographic placenames and basic tools for searching documents
+    for occurrences of those placenames.
+License: BSD_2_clause + file LICENSE
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 6.0.1
+Imports:
+    dplyr,
+    fastmatch,
+    quanteda,
+    sp,
+    stringi,
+    stringr
