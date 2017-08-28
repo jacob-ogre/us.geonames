@@ -1,5 +1,7 @@
 library(dplyr)
+library(ggplot2)
 library(parallel)
+library(plotly)
 library(stringr)
 library(us.geonames)
 
@@ -19,6 +21,15 @@ head(fiveyr_table)
 fiveyr_table$doc <- basename(fiveyr_table$Doc_Link) %>%
   str_replace_all("pdf$", "txt")
 fiveyr <- as_tibble(fiveyr_table)
+
+# check multi-spp docs
+mult <- tapply(fiveyr$Species, 
+               INDEX = fiveyr$Doc_Link, 
+               FUN = function(x) length(unique(x)))
+head(sort(mult, decreasing = TRUE), 10)
+sum(mult[mult > 1]) # 6.2% of 5yr
+mm <- as_data_frame(mult)
+ggplotly(qplot(data = mm, x = value, geom = "histogram", bins = 9))
 
 # Get counties data and prep
 load("/Users/jacobmalcom/Work/Data/esadocs/rda/counties_table_2016-12-10.rda")
