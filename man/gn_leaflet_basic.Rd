@@ -4,7 +4,21 @@
 \alias{gn_leaflet_basic}
 \title{Basic leaflet map of points identified in a \code{us.geonames} search}
 \usage{
-gn_leaflet_basic(df)
+gn_leaflet_basic(df, weight = 1, color = "red", fillColor = "red",
+  fillOpacity = 0.3, radius = 5)
+}
+\arguments{
+\item{df}{A dataframe from a \link{us.geonames} search}
+
+\item{weight}{Weight of circle marker border (default = 1)}
+
+\item{color}{Color of circle marker border (default = "red")}
+
+\item{fillColor}{Fill color of circle marker (default = "red")}
+
+\item{fillOpacity}{Opacity of a single marker (default = 0.3)}
+
+\item{radius}{Radius of circle marker (default = 5)}
 }
 \description{
 Basic leaflet map of points identified in a \code{us.geonames} search

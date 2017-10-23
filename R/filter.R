@@ -4,7 +4,7 @@
 #'
 #' @export
 #'
-gn_natural_places <- function(df) {
+gn_filter_natural_places <- function(df) {
   nat <- c("Arroyo", "Bar", "Basin", "Bay", "Beach", "Bench", "Bend", "Cape",
            "Channel", "Cliff", "Crater", "Falls", "Dam", "Flat", "Forest",
            "Gap", "Glacier", "Gut", "Harbor", "Island", "Isthmus", "Lake",

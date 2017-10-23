@@ -7,7 +7,7 @@ library(sp)
 library(stringr)
 library(us.geonames)
 
-init()
+# init()
 load("geonames.lite.rda")
 
 files <- list.files("~/Downloads/five_year_review/",
@@ -92,7 +92,6 @@ run_gn_search <- function(file) {
 }
 
 bind_all_res <- function(res_list) {
-  # dfs <- lapply(res_list, FUN = `[[`, 1)
   dfs <- lapply(res_list, FUN = `[[`, 3)
   res <- bind_rows(dfs)
   return(res)

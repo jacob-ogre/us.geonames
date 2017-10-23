@@ -132,6 +132,7 @@ hist(t100_xy70$area, breaks = 21)
 
 geoname_mcps <- lapply(spp, proc_sp, df = sp_place)
 geoname_mcps_df <- bind_rows(geoname_mcps)
+saveRDS(geoname_mcps_df, file = "data/geoname_mcps.rds")
 geoname_write <- dplyr::select(geoname_mcps_df, -mcps)
 rio::export(geoname_write, file = "data/geoname_gb_gn_mcps.xlsx")
 
@@ -150,10 +151,9 @@ gbif_spp <- unique(esa_gbif_coord$name)
 gbif_key <- unique(esa_gbif_coord$taxon_key)
 gbif_mcps <- lapply(gbif_spp, proc_sp_gbif, df = esa_gbif_coord)
 gbif_mcps_df <- bind_rows(gbif_mcps)
+saveRDS(gbif_mcps_df, file = "data/gbif_mcps.rds")
 gbif_write <- dplyr::select(gbif_mcps_df, -mcps)
 rio::export(gbif_write, file = "data/gbif_gb_gn_mcps.xlsx")
-
-
 
 gbmcps_xy70 <- filter(gbif_mcps_df, conf_level == "xy70")
 hist(gbmcps_xy70$area, breaks = 100)
@@ -188,6 +188,7 @@ combo <- rbind(gb_min, gn_min)
 combo_spp <- unique(combo$species)
 combo_mcp <- lapply(combo_spp, proc_combo_sp, df = combo)
 combo_mcp_df <- bind_rows(combo_mcp)
+saveRDS(combo_mcp_df, file = "data/combo_mcps.rds")
 combo_write <- dplyr::select(combo_mcp_df, -mcps)
 rio::export(combo_write, file = "data/combo_gb_gn_mcps.xlsx")
 

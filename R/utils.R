@@ -44,11 +44,11 @@ dbSafeNames = function(names) {
 #'
 gn_tokenizer <- function(text, min = 1, max = 7) {
   terms <- quanteda::tokens(
-      text,
-      "word",
-      ngrams = 1:7,
-      concatenator = " "
-    )
+    text,
+    "word",
+    ngrams = 1:7,
+    concatenator = " "
+  )
   return(terms[[1]])
 }
 
